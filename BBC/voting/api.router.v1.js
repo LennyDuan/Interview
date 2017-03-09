@@ -10,14 +10,11 @@ var errorHandler = require('./middlewares/errorHandler');
 var passport = require('passport');
 // Router
 var router = express.Router();
-// Others
-// User api
-//router.post('/users/:userID', errorHandler.apiErrorHandler);
 // Vote api
 router.get('/votes/', vote.getVotes, errorHandler.apiErrorHandler);
-//router.post('/votes/:voteID', errorHandler.apiErrorHandler);
-//// Candidate api
-router.get('/candidates', errorHandler.apiErrorHandler);
+router.post('/votes/',vote.postVote, errorHandler.apiErrorHandler);
+// Candidate api
+router.get('/candidates/', candidate.getCandidates, errorHandler.apiErrorHandler);
 
 //for test purpose
 router.get('/error/api', function (req, res, next) {
