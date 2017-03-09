@@ -29,6 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // routes collection
 var apiRouterV1 = require('./api.router.v1');
+app.use('/api/v1/voting',  apiRouterV1); // do we want cors?
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error(req.originalUrl + ' Not Found');

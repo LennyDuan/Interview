@@ -23,12 +23,30 @@ describe('Vote Model', function () {
 
   // Test Sample Data
   var voteSample = {userID : 1, candidateID : 'One'};
+  var voteSampleSame = {userID : 1, candidateID : 'One'};
   var voteSampleNoUserID = {candidateID : 'One'};
   var voteSampleNoCandidateID = {userID : 1};
 
   it('should be able to save a vote to the db', function (done) {
     var vote = new Vote(voteSample);
     vote.save(done);
+  });
+
+  it('should be able to save same vote to the db', function (done) {
+    var vote = new Vote(voteSample);
+    var voteSame = new Vote(voteSampleSame);
+    vote.save(function (err) {
+      if(err) done(err);
+      else{
+        var voteSampleSame = voteSampleSame;
+        voteSame.save(function (err) {
+          if(err) throw done(err);
+          else {
+            done();
+          }
+        });
+      }
+    });
   });
 
   it('should not be able to save a non-userID vote to the db', function(done) {
