@@ -30,6 +30,23 @@ Have finish model test:
 #### voting API
 Before start the api design and test, I make more models tests and make sure the database can follow the rules I create.
 
+Have finish 3 more model test:
+* Candidate Model should not be able to save same candidateID Candidate to the
+* User Model should not be able to save same userID User to the db: 2ms
+* Vote Model should be able to save same vote to the db: 2ms
+
 I like TDD development so I can know what I have done and is correct. So the first step is to create API test.
 
 The project is not big but I design a structure for my application. __models__ folder to pull the model schema. __api/v1__ dir has the api path. __proxy__ dir handle the DB operation from http request through api. For me, GET api is the easiest to create and test. So I create a GET votes api Test to verify my api structure that can works fine.
+
+##### Problem - Call Back && Multi Save
+* __Problem__: In my original thought, I think when user post a vote, Vote will save a vote, User will save candidate and maxVote, Candidate will add one more vote. When I try to implement it. I find it is very complex when they are lots of call back. Even I use Promise to solve callback, I still need to find out how to manager these operations.
+* __Process__: I think the most important part is dig Promise and see how it handles multi callback. Have tried some implementation but it doesn't work well. Keep trying.
+* __Solution__: Might find out tonight.
+
+Create required API - POST vote & GET candidates/
+Create API Test to test behaviour as well:
+* /api/v1/voting/candidates/ GET should list and return all votes: 62ms
+* /api/v1/votes/ GET should list and return all votes: 15ms
+* /api/v1/votes/ POST should create a vote for a new vote and return 201: 24ms
+* /api/v1/votes/ POST should not create a vote for an invalid vote and return 400: 6ms
