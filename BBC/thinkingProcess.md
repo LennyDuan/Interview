@@ -26,6 +26,7 @@ So they won't have any invalid voting at all...
 
 * I will use RESTful api for get/post http requests. I think it is a free-style web application that I can define the user input form and get output result. The only requirement is get accurate votes results and display them in the website.
 
+* Also there are more staff to do if it is real application. What if the max voting limitation changes? What if there are more then 5 candidates? There are more things that need to be considered...But not for this project right now.
 #### If it is a big data challenge?
 * If it is a big data skill challenge, then it should only have one object __Vote__ which will include userID and candidateID in database. So the CountMeUp should iterate through a very large number of rows in a database and do the calculation in 1s.
 
@@ -45,3 +46,6 @@ There has 3 Objects in my database:
 #### Client Side:
 * User Input with 2 value - userID and candidateID
 * Two getVote buttons - 1. Get votes from __Candidate__ Database (no calculation). 2. Get votes by iterating the __Vote__ database, do the calculation in 1s and give an response.
+
+### Something Else
+Is this a 3-8 hours job? Em... At least not for my project.... Maybe my project can't meet the requirements well... Maybe I can't pass the technical challenge... But it is good for me and I love coding a lot. It gives me experiences. Also I had a plan to build Voting web application for a while. This could be a great start.

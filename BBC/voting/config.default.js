@@ -4,6 +4,7 @@ var config = {
   db: 'mongodb://127.0.0.1/voting_prod',
 };
 
+// Database for development
 if (process.env.NODE_ENV === 'dev' || config.debug == true) {
   config.db = 'mongodb://127.0.0.1/voting_dev';
 }
