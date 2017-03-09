@@ -12,4 +12,16 @@ Show 'Hello World' in website.
 * __Solution__: in controller/v1/info.js file, remove '/' before '/pages/info' res.render('pages/info'). I know it must be a typo error...
 
 #### Create Data Model Schema and Create Model test
-I will always create __Model Test__ for the models in database, I have finish the data models for __Vote__, __User__, __Candidate__. Will try to finish models tests or leave it to tomorrow.
+I will always create __Model Test__ for the models in database, I have finish the data models for __Vote__, __User__, __Candidate__. Finish models tests or leave it to tomorrow.
+
+Have finish model test:
+  * Candidate Model should be able to save a user to the db: 22ms
+  * Candidate Model should not be able to save a non-candidateID User to the db: 2ms
+  * User Model should be able to save a user to the db: 3ms
+  * User Model should not be able to save a non-userID User to the db: 2ms
+  * User Model should not be able to save a maxVote-lagger-than-3 User to the db: 0ms
+  * Vote Model should be able to save a vote to the db: 2ms
+  * Vote Model should not be able to save a non-userID vote to the db: 1ms
+  * Vote Model should not be able to save a non-candidateID vote to the db: 1ms
+
+###### __8 passing (80ms)__

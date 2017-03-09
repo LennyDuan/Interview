@@ -5,11 +5,10 @@ var mongoose = require('mongoose');
 var userSchema = mongoose.Schema(
   {
     userID: {type: Number, required: true},
-    maxVote: {type: Number, max: 3},
+    maxVote: {type: Number, default: 0, max: 3},
     candidateOne: {type: String},
     candidateTwo: {type: String},
     candidateThree: {type: String},
-    timestamps: true
   });
 
 // Note sure use which attribute as index

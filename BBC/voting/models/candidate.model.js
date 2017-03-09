@@ -5,9 +5,8 @@ var mongoose = require('mongoose');
 var candidateSchema = mongoose.Schema(
   {
     candidateID: {type: String, required: true},
-    vote: {type: Number},
-    validVote: {type: Number},
-    timestamps: true
+    vote: {type: Number, default: 0},
+    validVote: {type: Number, default: 0},
   });
 
 // Note sure use which attribute as index
