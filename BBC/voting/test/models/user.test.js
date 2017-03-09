@@ -23,6 +23,7 @@ describe('User Model', function () {
 
   // Test Sample Data
   var userSample = {userID : 1, maxVote : 1, candidateOne : 'One'};
+  var userSampleSameUserID = {userID : 1, maxVote : 1, candidateOne : 'One'};
   var userSampleNoUserID = {maxVote : 2, candidateOne : 'One', candidateTwo : 'Two'};
   var userSampleMaxVoteLager = {userID : 1, maxVote : 4};
 
@@ -49,6 +50,23 @@ describe('User Model', function () {
       else{
         err.should.not.equal(null);
         done();
+      }
+    });
+  });
+
+  it('should not be able to save same userID User to the db', function(done) {
+    var user = new User(userSample);
+    user.save(function (err) {
+      if(err) done(err);
+      else{
+        var userSampleSameUserID = userSampleSameUserID;
+        new User(userSampleSameUserID).save(function (err) {
+          if(err) done();
+          else {
+            err.should.not.equal(null);
+            done();
+          }
+        });
       }
     });
   });

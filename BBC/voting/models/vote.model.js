@@ -11,7 +11,7 @@ var voteSchema = mongoose.Schema(
     timestamps: true
   });
 
-  // Note sure use which attribute as index
+  // Note sure use which attribute should be index
   voteSchema.index({userID: 1});
 
   // Return Model

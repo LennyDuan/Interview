@@ -24,19 +24,37 @@ describe('Candidate Model', function () {
   // Test Sample Data
   var candidateSample = {candidateID : 'One', vote : 10, validVote : 5};
   var candidateSampleNoID = {vote : 10, validVote : 5};
+  var candidateSampleSameID = {candidateID : 'One', vote : 10, validVote : 5};
 
-  it('should be able to save a user to the db', function (done) {
+  it('should be able to save a Candidate to the db', function (done) {
     var candidate = new Candidate(candidateSample);
     candidate.save(done);
   });
 
-  it('should not be able to save a non-candidateID User to the db', function(done) {
+  it('should not be able to save a non-candidateID Candidate to the db', function(done) {
     var candidate = new Candidate(candidateSampleNoID);
     candidate.save(function (err) {
       if(err) done();
       else{
         err.should.not.equal(null);
         done();
+      }
+    });
+  });
+
+  it('should not be able to save same candidateID Candidate to the db', function(done) {
+    var candidate = new Candidate(candidateSample);
+    candidate.save(function (err) {
+      if(err) done(err);
+      else{
+        var candidateSampleSameID = candidateSampleSameID;
+        new Candidate(candidateSampleSameID).save(function (err) {
+          if(err) done();
+          else {
+            err.should.not.equal(null);
+            done();
+          }
+        });
       }
     });
   });

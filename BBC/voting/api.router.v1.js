@@ -14,6 +14,7 @@ var router = express.Router();
 // User api
 //router.post('/users/:userID', errorHandler.apiErrorHandler);
 // Vote api
+router.get('/votes/', vote.getVotes, errorHandler.apiErrorHandler);
 //router.post('/votes/:voteID', errorHandler.apiErrorHandler);
 //// Candidate api
 router.get('/candidates', errorHandler.apiErrorHandler);
