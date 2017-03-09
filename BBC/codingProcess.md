@@ -1,4 +1,4 @@
-### Day 1 - 08 Mar 2017 20:00
+### Day 1 - 08 Mar 2017 21:00 -
 #### Init Voting Project
 Staring coding for the application. I have a node.js project before, so what I have done is reuse web structure of that project for the new Voting web application.
 
@@ -25,3 +25,11 @@ Have finish model test:
   * Vote Model should not be able to save a non-candidateID vote to the db: 1ms
 
 ###### __8 passing (80ms)__
+
+### Day 2 - 09 Mar 2017 19:00 -
+#### voting API
+Before start the api design and test, I make more models tests and make sure the database can follow the rules I create.
+
+I like TDD development so I can know what I have done and is correct. So the first step is to create API test.
+
+The project is not big but I design a structure for my application. __models__ folder to pull the model schema. __api/v1__ dir has the api path. __proxy__ dir handle the DB operation from http request through api. For me, GET api is the easiest to create and test. So I create a GET votes api Test to verify my api structure that can works fine.
