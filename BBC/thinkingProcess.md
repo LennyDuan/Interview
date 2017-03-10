@@ -30,7 +30,7 @@ So they won't have any invalid voting at all...
 #### If it is a big data challenge?
 * If it is a big data skill challenge, then it should only have one object __Vote__ which will include userID and candidateID in database. So the CountMeUp should iterate through a very large number of rows in a database and do the calculation in 1s.
 
-* Well, I will think the input data format and type. The inputs votes are an array or from database? Are they JSON or XML? The inputs will be the whole votes data or input vote one by one?
+* Well, I will think about the input data format and type. The inputs votes are in file or from database? Are they plain, JSON or XML? The inputs will be the whole votes data or input vote one by one?
 
 * The more important is the how to design a good algorithm to get the best performance.
 
@@ -49,3 +49,7 @@ There has 3 Objects in my database:
 
 ### Something Else
 Is this a 3-8 hours job? Em... At least not for my project.... Maybe my project can't meet the requirements well... Maybe I can't pass the technical challenge... But it is good for me and I love coding a lot. It gives me experiences. Also I had a plan to build Voting web application for a while. This could be a great start.
+
+### File I/O with big data - 10 May 2017
+I just find one thing that we can have some improvement if the input data (1000,0000 votes) is stored in file. One of the biggest problem is I/O that will influence the result a lot. And one thing could improve the performance  that the data is in one file or the data is in different file (like 10 files and each file have 100,0000 votes).
+In nodejs, we can use 'async' to handle parallelizing I/O tasks and calculate the result separately. This might improve the speed.

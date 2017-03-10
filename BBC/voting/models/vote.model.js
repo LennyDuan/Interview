@@ -11,8 +11,8 @@ var voteSchema = mongoose.Schema(
     timestamps: true
   });
 
-  // Note sure use which attribute should be index
-  voteSchema.index({userID: 1});
+// Note sure use which attribute should be index
+voteSchema.index({userID: 1});
 
-  // Return Model
-  module.exports = mongoose.model('Vote', voteSchema);
+// Return Model
+module.exports = mongoose.model('Vote', voteSchema);

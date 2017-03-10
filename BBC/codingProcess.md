@@ -42,6 +42,7 @@ The project is not big but I design a structure for my application. __models__ f
 ##### Problem - Call Back && Multi Save
 * __Problem__: In my original thought, I think when user post a vote, Vote will save a vote, User will save candidate and maxVote, Candidate will add one more vote. When I try to implement it. I find it is very complex when they are lots of call back. Even I use Promise to solve callback, I still need to find out how to manager these operations.
 * __Process__: I think the most important part is dig Promise and see how it handles multi callback. Have tried some implementation but it doesn't work well. Keep trying.
+* __Thought__ : Do I really need to use callback to save multi data for different object? Users dont' need to know the valid/invalid vote result in this requirement. Can we update User/Candidate database without callback?  
 * __Solution__: Might find out tonight.
 
 Create required API - POST vote & GET candidates/
@@ -50,3 +51,22 @@ Create API Test to test behaviour as well:
 * /api/v1/votes/ GET should list and return all votes: 15ms
 * /api/v1/votes/ POST should create a vote for a new vote and return 201: 24ms
 * /api/v1/votes/ POST should not create a vote for an invalid vote and return 400: 6ms
+
+### Day 3 - 10 Mar 2017 21:00 -
+#### Finish Basic Data Proxy with Test
+The first is to finish the problem - call back and multi save. Look some documents about call-back and Promise. I have some idea about how to design this part better. Before implementation, I will make some TDD tests first for basic data proxy.
+
+Basic DB Proxy Test:
+* Candidate Model Proxy createCandidate should create a new candidate with 1 vote: 2ms
+* Candidate Model Proxy updateVoteCandidate should increase 1 for votes number: 10ms
+* Candidate Model Proxy updateValideVoteCandidate should increase 1 for valid votes number: 3ms
+* User Model Proxy findUser should return one user if find a user: 11ms
+* User Model Proxy createUser should create a new user with 1 maxVote and one candidate: 2ms
+* User Model Proxy validVote should return false if maxVote is equal/larger then 3: 3ms
+* User Model Proxy validVote should return true if maxVote is less then 3: 4ms
+* User Model Proxy updateUser should add second candidate if maxVote equal 1: 5ms
+* User Model Proxy updateUser should add third candidate if maxVote equal 2: 7ms
+* Vote Model Proxy updateCandidate should save a new candidate if can not find candidateID: 3ms
+* Vote Model Proxy updateCandidate should return one more vote when find candidateID: 15ms
+
+#### Implement Post voting API with multi-save correctly
