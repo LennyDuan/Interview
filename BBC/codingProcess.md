@@ -51,3 +51,9 @@ Create API Test to test behaviour as well:
 * /api/v1/votes/ GET should list and return all votes: 15ms
 * /api/v1/votes/ POST should create a vote for a new vote and return 201: 24ms
 * /api/v1/votes/ POST should not create a vote for an invalid vote and return 400: 6ms
+
+### Day 3 - 10 Mar 2017 21:00 -
+#### Finish Basic Data Proxy with Test
+The first is to finish the problem - call back and multi save. Look some documents about call-back and Promise. I have some idea about how to design this part better. Before implementation, I will make some TDD tests first for basic data proxy.
+
+#### Implement Post voting API with multi-save correctly

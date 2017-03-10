@@ -37,8 +37,6 @@ describe('Vote Model Proxy', function () {
       if (err) done(err);
       else {
         voteProxy.updateCandidate('One').then(function (candidate) {
-          console.log("-------------" + candidate.vote);
-
           candidate.candidateID.should.equal('One');
           candidate.vote.should.equal(11);
           done();
