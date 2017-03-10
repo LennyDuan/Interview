@@ -56,4 +56,17 @@ Create API Test to test behaviour as well:
 #### Finish Basic Data Proxy with Test
 The first is to finish the problem - call back and multi save. Look some documents about call-back and Promise. I have some idea about how to design this part better. Before implementation, I will make some TDD tests first for basic data proxy.
 
+Basic DB Proxy Test:
+* Candidate Model Proxy createCandidate should create a new candidate with 1 vote: 2ms
+* Candidate Model Proxy updateVoteCandidate should increase 1 for votes number: 10ms
+* Candidate Model Proxy updateValideVoteCandidate should increase 1 for valid votes number: 3ms
+* User Model Proxy findUser should return one user if find a user: 11ms
+* User Model Proxy createUser should create a new user with 1 maxVote and one candidate: 2ms
+* User Model Proxy validVote should return false if maxVote is equal/larger then 3: 3ms
+* User Model Proxy validVote should return true if maxVote is less then 3: 4ms
+* User Model Proxy updateUser should add second candidate if maxVote equal 1: 5ms
+* User Model Proxy updateUser should add third candidate if maxVote equal 2: 7ms
+* Vote Model Proxy updateCandidate should save a new candidate if can not find candidateID: 3ms
+* Vote Model Proxy updateCandidate should return one more vote when find candidateID: 15ms
+
 #### Implement Post voting API with multi-save correctly
