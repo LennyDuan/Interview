@@ -11,7 +11,7 @@ var passport = require('passport');
 // Router
 var router = express.Router();
 // Vote api
-router.get('/votes/', vote.getVotes, errorHandler.apiErrorHandler);
+// router.get('/votes/', vote.getVotes, errorHandler.apiErrorHandler);
 router.post('/votes/',vote.postVote, errorHandler.apiErrorHandler);
 // Candidate api
 router.get('/candidates/', candidate.getCandidates, errorHandler.apiErrorHandler);

@@ -1,0 +1,93 @@
+<!-- views/main/operate.ejs -->
+<div class="panel-group" id="accordion-editOperate">
+  <!-- Vote -->
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion-editOperate" href="#collapse-vote">Vote for a candidate</a>
+      </h4>
+    </div>
+    <div id="collapse-vote" class="panel-collapse collapse">
+      <div class="panel-body">
+        <form class="form-horizontal" id="vote-post">
+          <div class="form-group">
+            <label class="control-label col-sm-2">UserID :</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="vote-userID" placeholder="Input userID (digital only).. e.g: 1"required >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2">CandidateID :</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="vote-candidateID" placeholder="Input candidateID... e.g: One" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label><input type="checkbox" required> Click to confirm <strong>VOTE</strong></label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-success" id="btn-vote-post">Vote</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Get User -->
+  <!-- Candidate Result Directly-->
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion-editOperate" href="#collapse-candidate">Get all candidates</a>
+      </h4>
+    </div>
+    <div id="collapse-candidate" class="panel-collapse collapse">
+      <div class="panel-body">
+        <form class="form-horizontal" id="candidates-get">
+          <div class="form-group">
+            <label class="control-label col-sm-2">Declaration :</label>
+            <div class="col-sm-10">
+              <P class="form-control">This GET will sent http GET request to 'api/v1/candidates' and return final results from Candidate Database without calculation </p>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-warning" id="btn-candidates-get"> Get all candidats</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Count Me Up -->
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion-editOperate" href="#collapse-count">Count Me Up</a>
+      </h4>
+    </div>
+    <div id="collapse-count" class="panel-collapse collapse">
+      <div class="panel-body">
+        <form class="form-horizontal" id="candidates-count">
+          <div class="form-group">
+            <label class="control-label col-sm-2">Big data challenge :</label>
+            <div class="col-sm-10">
+              <P class="form-control">It will iterate the Vote database and do 'CountMeUp' calculation</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-danger" id="btn-count">Count Me Up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -53,3 +53,6 @@ Is this a 3-8 hours job? Em... At least not for my project.... Maybe my project 
 ### File I/O with big data - 10 May 2017
 I just find one thing that we can have some improvement if the input data (1000,0000 votes) is stored in file. One of the biggest problem is I/O that will influence the result a lot. And one thing could improve the performance  that the data is in one file or the data is in different file (like 10 files and each file have 100,0000 votes).
 In nodejs, we can use 'async' to handle parallelizing I/O tasks and calculate the result separately. This might improve the speed.
+
+### What will happen if what I did is not the requirements - 11 May 2017
+I have spent lots of time for website development with high quality . Then I just notice that maybe the technical challenge is about dealing with big data. Tomorrow is the deadline and I don't have time to improve the performance of algorithm. I have no idea what should I do or what I can do...At least, I show the skill of full-stack web development.
