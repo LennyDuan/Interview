@@ -2,9 +2,7 @@
 
 // Dependencies
 var express = require('express');
-var info = require('./api/v1/info');
 var vote = require('./api/v1/vote');
-var user = require('./api/v1/user');
 var candidate = require('./api/v1/candidate');
 var errorHandler = require('./middlewares/errorHandler');
 var passport = require('passport');
@@ -15,6 +13,8 @@ var router = express.Router();
 router.post('/votes/',vote.postVote, errorHandler.apiErrorHandler);
 // Candidate api
 router.get('/candidates/', candidate.getCandidates, errorHandler.apiErrorHandler);
+// Count Me Up api
+router.get('/candidates/countMeUp/', candidate.countMeUp, errorHandler.apiErrorHandler);
 
 //for test purpose
 router.get('/error/api', function (req, res, next) {

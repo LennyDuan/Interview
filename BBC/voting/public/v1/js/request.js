@@ -15,17 +15,17 @@ $(document).ready(function (){
       contentType: "application/json",
       success: function (data, textStatus, xhr)
       {
-        $('#vote-post').append(showWarningMessage("Have create a vote for candidate: " + data.candidateID));
+        $('#vote-result').html(showWarningMessage("Have create a vote for candidate: " + data.candidateID));
       },
       error: function (XMLHttpRequest, textStatus, errorThrown) {
-        $('#vote-post').append(showWarningMessage(JSON.parse(XMLHttpRequest.responseText).message));
+        $('#vote-result').html(showWarningMessage(JSON.parse(XMLHttpRequest.responseText).message));
       }
     });
     event.preventDefault();
   });
 });
 
-// Click button to create a vote
+// Click button to send HTTP GET candidates from Candidate DB
 $(document).ready(function (){
   $('#candidates-get').submit(function ( event ) {
     var getUrl = "../api/v1/voting/candidates/";
@@ -35,12 +35,33 @@ $(document).ready(function (){
       contentType: "application/json",
       success: function (data, textStatus, xhr)
       {
-        $('#candidates-get').append(showResultBar(data));
+        $('#candidates-result').html(showResultBar(data));
       },
       error: function (XMLHttpRequest, textStatus, errorThrown) {
-        $('#candidates-get').append(showWarningMessage(JSON.parse(XMLHttpRequest.responseText).message));
+        $('#candidates-result').html(showWarningMessage(JSON.parse(XMLHttpRequest.responseText).message));
       }
     });
     event.preventDefault();
   });
+});
+
+// Click button to send HTTP GET candidates from Votes Calculation
+$(document).ready(function (){
+ $('#candidates-count').submit(function ( event ) {
+   var getUrl = "../api/v1/voting/candidates/countMeUp/";
+   $.ajax({
+     type: "GET",
+     url: getUrl,
+     contentType: "application/json",
+     success: function (data, textStatus, xhr)
+     {
+       console.log(data);
+       //$('#count-result').html(showResultBar(data));
+     },
+     error: function (XMLHttpRequest, textStatus, errorThrown) {
+       $('#count-result').html(showWarningMessage(JSON.parse(XMLHttpRequest.responseText).message));
+     }
+   });
+   event.preventDefault();
+ });
 });
