@@ -19,8 +19,10 @@ exports.findUser = function (userID) {
 // To check if this vote is valid for this user
 exports.validVote= function (userID) {
   return this.findUser(userID).then(function (user) {
-    if (user.maxVote >= 3) {
-      return false;
+    if(user) {
+      if (user.maxVote >= 3) {
+        return false;
+      }
     }
     return true;
   });

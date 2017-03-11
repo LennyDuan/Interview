@@ -82,7 +82,7 @@ I am still working on the part as there is a typo bug and block a whole night...
 * __Problem__: In my original thought, when there is a new vote, it will update user then update candidate.But if user already have 2 maxVote, it will update maxVote to 3, and then when it update candidate, candidate check updated user first and it will consider it as a invalid user (update user before to 3), so it won't update validVote for candidate.
 * __Process__: Well, my I modify the model, modify the user proxy, modify the vote proxy but I find the logic is not easy to handle. And it makes more test fail...I wanna solve it in another branch with this issue.  
 * __Thought__ : I think a better design can save lots of time. Answer is just in the corner.
-* __Solution__:
+* __Solution__: Just update Candidate first, then update user. I have good design so it save lots of time to make this change.
 
 Complicated Voting DB Proxy Test:
 * Voting Proxy For modifyUser:  modifyUser should return a new user when cant find this userID: 10ms
@@ -93,5 +93,5 @@ Complicated Voting DB Proxy Test:
 * Voting Proxy For modifyCandidate:  modifyCandidate should add vote without validVote for invalid user (maxVote >= 3): 10ms
 * Voting Proxy For multiSave:  multiSave should return a new user and a new candidate for a Vote: 18ms
 * /api/v1/votes/ POST should create a vote for a new vote with new user and candidate then return 201: 34ms
-* /api/v1/votes/ POST should create a vote for update user and candidate with validVote and return 201 __Failed__
+* /api/v1/votes/ POST should create a vote for update user and candidate with validVote and return 201: 31ms
 * /api/v1/votes/ POST should create a vote for update invalid user and candidate without validVote and return 201: 24ms

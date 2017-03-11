@@ -111,6 +111,7 @@ describe('/api/v1/votes/', function () {
             var userFind = userProxy.findUser(8).then(function (user) {
               user.userID.should.equal(8);
               user.maxVote.should.equal(3);
+              user.candidateThree.should.equal('Three');
             });
             // Vote should update candidate without  validvotes 1
             var candidateFind = candidateProxy.findCandidate('One').then(function (candidate) {
@@ -156,7 +157,7 @@ describe('/api/v1/votes/', function () {
               candidate.vote.should.equal(11);
               candidate.validVote.should.equal(6);
             });
-            
+
             Promise.all([voteFind, userFind, candidateFind]).then(function () {
               done();
             });

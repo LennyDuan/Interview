@@ -21,9 +21,9 @@ exports.postVote = function (vote) {
 exports.multiSave = function (vote) {
   var self = this;
   var vote = vote;
-  return this.modifyUser(vote)
+  return this.modifyCandidate(vote)
   .then(function(user) {
-    return self.modifyCandidate(vote)
+    return self.modifyUser(vote)
     .then(function(candidate) {
       return vote;
     });
