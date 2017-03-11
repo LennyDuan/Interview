@@ -13,7 +13,15 @@
 </header>
    <main class="container">
      <div class="jumbotron">
+       <h1>Introduction</h1>
+       <h2>Web development challenge - </h2>
+       <h4>Vote for a candidate: </h4>Send POST request with userID and candidateID and every vote will increate vote or validVote (according to the situation) for a candidate stored in the MongoDB.
+       <h4>Get all candidates: </h4>A simple RESTful GET operation, send request to provided API and return data from Candidate database without any algorithms calculation.
+       <h2>Big data challenge - </h2>
+       <h4>Count Me Up: </h4>This is the origin big data challenge. Iterate the votes(userID, candidateID) in DB and do the calculations via the algorithm I designed and return candidates result. 
+
      </div>
+     <% include ../partials/main/operate %>
    </main>
  <!-- User footer in partials/common/footer.ejs -->
 <footer>

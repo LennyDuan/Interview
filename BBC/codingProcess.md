@@ -102,5 +102,8 @@ Start the front-end UI design. It will be Use node __ejs__ view engine with JQue
 2. __Views__ : ejs files for creating html. __Partials__ folder includes some needed components to reduce duplicated code. __Pages__ directory has two main pages, one is index.ejs('/voting/') page for front-end design test. Second one is main.ejs('/voting/main') page. This page is for votes created by users and get candidate result(countMeUp).
 
 Won't have too much problem. Most of the issue are typo mistake. Website debug tools in Chrome and FireFox have their own advantages and they help a lot to fix the front-end issue.
+* Chrome: Better to find the syntax errors in JS files
+* FireFox: Better to debug Restful http request.
 
-Have finished the static _index_ page.
+Have finished the static _index_ page and dynamic AJAX RestRequest pages.
+I will improve a better UI and then start the algorithms.
