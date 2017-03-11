@@ -21,8 +21,9 @@ var postVote = function (req, res, next) {
     err.reqBody = vote;
     next(err);
   }
-  
   var vote = req.body;
-  VoteProxy.postVote(vote).then(sendvote).catch(handleError);
+  VoteProxy.postVote(vote)
+  .then(sendvote)
+  .catch(handleError);
 };
 exports.postVote = postVote;

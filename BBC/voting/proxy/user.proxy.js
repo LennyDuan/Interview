@@ -31,8 +31,10 @@ exports.updateUser = function (vote) {
     var maxVote = user.maxVote + 1;
     if (user.maxVote == 1) {
       return User.findByIdAndUpdate(user._id, { $set : { maxVote : maxVote, candidateTwo : vote.candidateID} }, { 'new': true });
-    } else {
+    } else if (user.maxVote == 2){
       return User.findByIdAndUpdate(user._id, { $set : { maxVote : maxVote, candidateThree : vote.candidateID} }, { 'new': true });
+    } else {
+      return user;
     }
   });
 }

@@ -37,6 +37,13 @@ describe('Candidate Model Proxy', function () {
     });
   });
 
+  it('findCandidate should return null if dont find a candidate', function (done) {
+    candidateProxy.findCandidate('One').then(function (candidate) {
+      (true).should.equal(candidate == null);
+      done();
+    });
+  });
+
   it('createCandidate should create a new candidate with 1 vote', function (done) {
     candidateProxy.createCandidate('New').then(function (candidate) {
       candidate.candidateID.should.equal('New');

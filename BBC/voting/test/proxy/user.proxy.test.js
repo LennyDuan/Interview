@@ -67,7 +67,7 @@ describe('User Model Proxy', function () {
     });
   });
 
-  it('validVote should return false if maxVote is equal/larger then 3', function (done) {
+  it('validVote should return false if maxVote is larger then 3', function (done) {
     var user = new User(userSampleThreeVote);
     user.save(function (err) {
       if (err) done(err);

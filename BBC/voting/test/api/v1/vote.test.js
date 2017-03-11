@@ -9,6 +9,8 @@ var config = require('../../../config.default');
 var Promise = require('bluebird');
 var deepcopy= require('deepcopy');
 var should = require('chai').should();
+var userProxy = require('../../../proxy/user.proxy.js');
+var candidateProxy = require('../../../proxy/candidate.proxy.js');
 
 // API path for vote
 var path = '/api/v1/voting/votes/';
@@ -20,9 +22,11 @@ describe('/api/v1/votes/', function () {
   });
 
   beforeEach(function (done) {
-    Vote.remove({});
-    User.remove({});
-    Candidate.remove({}, done);
+    User.remove({}, function() {
+        Candidate.remove({}, function () {
+          Vote.remove({}, done);
+        }, done);
+    }, done);
   });
 
   // Test Sample Data
@@ -55,7 +59,8 @@ describe('/api/v1/votes/', function () {
   });
 
   describe('POST', function () {
-    it('should create a vote for a new vote and return 201', function (done) {
+
+    it('should create a vote for a new vote with new user and candidate then return 201', function (done) {
       request.post(path)
       .send(voteSample)
       .set('Accept', 'application/json')
@@ -63,12 +68,101 @@ describe('/api/v1/votes/', function () {
       .end(function (err) {
         if (err) done(err);
         else {
-          Vote.find({ userID: 2 }).then(function (votes) {
+          Vote.find({ userID: 1 }).then(function (votes) {
             (votes.length).should.equal(1);
-            done();
           });
+          // Vote should create a new user
+          userProxy.findUser(1).then(function (user) {
+            user.userID.should.equal(1);
+            user.maxVote.should.equal(1);
+          }, done);
+
+          // Vote should create a candidate with votes 1
+          candidateProxy.findCandidate('One').then(function (candidate) {
+            candidate.candidateID.should.equal('One');
+            candidate.vote.should.equal(1);
+            candidate.validVote.should.equal(1);
+          }, done);
+
+          done();
         }
       });
+    });
+
+    it('should create a vote for update invalid user and candidate without validVote and return 201', function (done) {
+      var userSampleThreeVote =
+      {userID : 8, maxVote : 3, candidateOne : 'One', candidateTwo : 'Two', candidateThree : "Three"};
+      var voteSample = {userID : 8, candidateID : 'One'};
+      var candidateSample = {candidateID : 'One', vote : 10, validVote : 5};
+
+      var saveData = Promise.all([new User(userSampleThreeVote).save(), new Candidate(candidateSample).save()]);
+      saveData.then(function() {
+        request.post(path)
+        .send(voteSample)
+        .set('Accept', 'application/json')
+        .expect(201)
+        .end(function (err) {
+          if (err) done(err);
+          else {
+            var voteFind = Vote.find({ userID: 8 }).then(function (votes) {
+              (votes.length).should.equal(1);
+            });
+            // Vote should not update a user
+            var userFind = userProxy.findUser(8).then(function (user) {
+              user.userID.should.equal(8);
+              user.maxVote.should.equal(3);
+            });
+            // Vote should update candidate without  validvotes 1
+            var candidateFind = candidateProxy.findCandidate('One').then(function (candidate) {
+              candidate.candidateID.should.equal('One');
+              candidate.vote.should.equal(11);
+              candidate.validVote.should.equal(5);
+            });
+            Promise.all([voteFind, userFind, candidateFind]).then(function () {
+              done();
+            });
+          }
+        });
+      }, done);
+    });
+
+    it('should create a vote for update user and candidate with validVote and return 201', function (done) {
+      var userSampleTwoVote =
+      {userID : 8, maxVote : 2, candidateOne : 'One', candidateTwo : 'Two'};
+      var voteSample = {userID : 8, candidateID : 'One'};
+      var candidateSample = {candidateID : 'One', vote : 10, validVote : 5};
+
+      var saveData = Promise.all([new User(userSampleTwoVote).save(), new Candidate(candidateSample).save()]);
+      saveData.then(function() {
+        request.post(path)
+        .send(voteSample)
+        .set('Accept', 'application/json')
+        .expect(201)
+        .end(function (err) {
+          if (err) done(err);
+          else {
+            var voteFind = Vote.find({ userID: 8 }).then(function (votes) {
+              (votes.length).should.equal(1);
+            });
+            // Vote should not update a user
+            var userFind = userProxy.findUser(8).then(function (user) {
+              user.userID.should.equal(8);
+              user.maxVote.should.equal(3);
+              user.candidateThree.should.equal('One');
+            });
+            // Vote should update candidate without  validvotes 1
+            var candidateFind = candidateProxy.findCandidate('One').then(function (candidate) {
+              candidate.candidateID.should.equal('One');
+              candidate.vote.should.equal(11);
+              candidate.validVote.should.equal(6);
+            });
+            
+            Promise.all([voteFind, userFind, candidateFind]).then(function () {
+              done();
+            });
+          }
+        });
+      }, done);
     });
 
     it('should not create a vote for an invalid vote and return 400', function (done) {
@@ -86,22 +180,6 @@ describe('/api/v1/votes/', function () {
         }
       });
     });
-
-    // it('should create a user with correct detail for a new vote and return 201', function (done) {
-    //   request.post(path)
-    //   .send(voteSampleTwo)
-    //   .set('Accept', 'application/json')
-    //   .expect(201)
-    //   .end(function (err) {
-    //     if (err) done(err);
-    //     else {
-    //       User.find({ userID: 2 }).then(function (users) {
-    //         users.length.should.equal(0);
-    //         done();
-    //       });
-    //     }
-    //   });
-    // });
   });
 
 });
