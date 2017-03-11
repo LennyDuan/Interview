@@ -95,3 +95,15 @@ Complicated Voting DB Proxy Test:
 * /api/v1/votes/ POST should create a vote for a new vote with new user and candidate then return 201: 34ms
 * /api/v1/votes/ POST should create a vote for update user and candidate with validVote and return 201: 31ms
 * /api/v1/votes/ POST should create a vote for update invalid user and candidate without validVote and return 201: 24ms
+
+#### Simple responsive UI Design
+Start the front-end UI design. It will be Use node __ejs__ view engine with JQuery/Bootstraps/Ajax framework. Nothing too much to talk about. There will have 2 main folder for UI.
+1. __Public__ : Some js/css I created for better display.
+2. __Views__ : ejs files for creating html. __Partials__ folder includes some needed components to reduce duplicated code. __Pages__ directory has two main pages, one is index.ejs('/voting/') page for front-end design test. Second one is main.ejs('/voting/main') page. This page is for votes created by users and get candidate result(countMeUp).
+
+Won't have too much problem. Most of the issue are typo mistake. Website debug tools in Chrome and FireFox have their own advantages and they help a lot to fix the front-end issue.
+* Chrome: Better to find the syntax errors in JS files
+* FireFox: Better to debug Restful http request.
+
+Have finished the static _index_ page and dynamic AJAX RestRequest pages.
+I will improve a better UI and then start the algorithms.

@@ -2,7 +2,6 @@
 var config = require('./config.default');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var errorHandler = require('./middlewares/errorHandler');
 var passport = require('passport');
@@ -15,7 +14,7 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 var viewRouter = require('./views.router');
-app.use('/views/',  viewRouter);
+app.use('/voting/',  viewRouter);
 
 var morgan = require('morgan');
 app.use(morgan('combined'));
@@ -23,7 +22,6 @@ if(config.debug) app.use(morgan('dev'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(passport.initialize());
 app.use(express.static(path.join(__dirname, 'public')));
 
