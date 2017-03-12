@@ -66,7 +66,7 @@
       </div>
     </div>
   </div>
-  <!-- Count Me Up -->
+  <!-- Count Me Up - big data-->
   <div class="panel panel-danger">
     <div class="panel-heading">
       <h4 class="panel-title">
@@ -93,4 +93,67 @@
     </div>
   </div>
 
+  <!-- Count Me Up - Algorihm-->
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse"href="#collapse-algo">Count Me Up - Algorithoms</a>
+      </h4>
+    </div>
+    <div id="collapse-algo" class="panel-collapse collapse">
+      <div class="panel-body">
+        <form class="form-horizontal" id="algo-post">
+          <div class="form-group">
+            <label class="control-label col-sm-2">Votes Total:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="algo-votes" placeholder="Input votes number.. e.g: 10000000"required >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2">Candidate One</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="algo-one" placeholder="Input percentages e.g: 5" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2">Candidate Two</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="algo-two" placeholder="Input percentages e.g: 10" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2">Candidate Three</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="algo-three" placeholder="Input percentages e.g: 20" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2">Candidate Four</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="algo-four" placeholder="Input percentages e.g: 25" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2">Candidate Five</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="algo-five" placeholder="Input percentages e.g: 40" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label><input type="checkbox" required> Click to confirm</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-success" id="btn-algo-post">Calculate</button>
+            </div>
+          </div>
+        </form>
+        <div id='algo-result'></div>
+      </div>
+    </div>
+  </div>
 </div>
