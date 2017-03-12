@@ -107,3 +107,6 @@ Won't have too much problem. Most of the issue are typo mistake. Website debug t
 
 Have finished the static _index_ page and dynamic AJAX RestRequest pages.
 I will improve a better UI and then start the algorithms.
+
+### Day 5 - 12 Mar 2017 9:30 -
+Today is the last day, and I will start working on the big data algorithm. Before start it... I nned to create large number of data. I user gulp script to create two task 'createVotes' and test 'bigData'. I should find a proper way to create data.
