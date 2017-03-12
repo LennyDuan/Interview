@@ -16,6 +16,24 @@ gulp.task('test', function () {
   })).on('error', gutil.log);
 });
 
-gulp.task('test-watch', function () {
-  gulp.watch('./**/*.js', ['test']);
+
+// Stop big data challenges.
+gulp.task('bigdata', function () {
+  gulp.src(['./test/bigdata/bigData.test.js'], {read: false}).pipe(mocha({
+    reporter: 'list',
+    globals: {
+      should: require('chai').should(),
+      expect: require('chai').expect()
+    }
+  })).on('error', gutil.log);
+});
+
+gulp.task('create', function () {
+  gulp.src(['./test/**/createVote.js'], {read: false}).pipe(mocha({
+    reporter: 'list',
+    globals: {
+      should: require('chai').should(),
+      expect: require('chai').expect()
+    }
+  })).on('error', gutil.log);
 });

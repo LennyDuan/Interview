@@ -56,10 +56,47 @@ $(document).ready(function (){
      success: function (data, textStatus, xhr)
      {
        console.log(data);
-       //$('#count-result').html(showResultBar(data));
+       $('#count-result').html(showWarningMessage(data));
      },
      error: function (XMLHttpRequest, textStatus, errorThrown) {
        $('#count-result').html(showWarningMessage(JSON.parse(XMLHttpRequest.responseText).message));
+     }
+   });
+   event.preventDefault();
+ });
+});
+
+// Click button to send HTTP GET candidates from Votes Calculation
+$(document).ready(function (){
+ $('#algo-post').submit(function ( event ) {
+   var getUrl = "../api/v1/voting/algorithm/countMeUp/";
+   var votes = parseInt($("#algo-votes").val());
+   var canOne = parseInt($('#algo-one').val());
+   var canTwo = parseInt($('#algo-two').val());
+   var canThree = parseInt($('#algo-three').val());
+   var canFour = parseInt($('#algo-four').val());
+   var canFive = parseInt($('#algo-five').val());
+   var data = {
+     votes: votes,
+     canOne: canOne,
+     canTwo: canTwo,
+     canThree: canThree,
+     canFour: canFour,
+     canFive: canFive
+   };
+   console.log(data);
+   $.ajax({
+     type: "GET",
+     url: getUrl,
+     data: serialize(data),
+     contentType: "application/json",
+     success: function (data, textStatus, xhr)
+     {
+       console.log(data);
+       $('#algo-result').html(showWarningMessage(data));
+     },
+     error: function (XMLHttpRequest, textStatus, errorThrown) {
+       $('#algo-result').html(showWarningMessage(JSON.parse(XMLHttpRequest.responseText).message));
      }
    });
    event.preventDefault();

@@ -14,11 +14,11 @@ var getCandidates = function (req, res, next) {
 exports.getCandidates = getCandidates;
 
 
-// GET Candidate From Votes CountMeUp
+// GET Candidate From Votes CountMeUp - Stop Big Data
 var countMeUp = function (req, res, next) {
   countMeUpProxy.getCandidates().then(function (candidates) {
     res.status(200);
-    res.send("Count Me Up!!!");
+    res.send("Wrong direction - Big data - Count Me Up Stop!!!");
   }).catch(next);
 };
 exports.countMeUp = countMeUp;
