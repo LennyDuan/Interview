@@ -114,3 +114,7 @@ Today is the last day, and I will start working on the big data algorithm. Befor
 The requirement is not __big data__ as well.
 __I am in the wrong direction for 4 days__.
 I need modify what I have write. And back to the correct directions.
+
+The details are in the algorithmProcess.md
+
+__Well, it is not a pure algorithm challenge, it should be big data__ Back to big data challenge.

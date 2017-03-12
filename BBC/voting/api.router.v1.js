@@ -17,7 +17,7 @@ router.get('/candidates/', candidate.getCandidates, errorHandler.apiErrorHandler
 // Count Me Up api - big data
 router.get('/candidates/countMeUp/', candidate.countMeUp, errorHandler.apiErrorHandler);
 
-// Count Me Up api - Algorithm
+// Count Me Up api - Algorithm - Wrong direction
 router.get('/algorithm/countMeUp/', algorithm.countMeUp, errorHandler.apiErrorHandler);
 //for test purpose
 router.get('/error/api', function (req, res, next) {
