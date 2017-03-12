@@ -1,6 +1,8 @@
 ## Purpose
 The interviewers are interested in _non-coding_ aspects and how I solve this problems, so I create this note and it will record my thinking processes until I solve this issue.
 
+---
+
 ### Before Coding - 08 Mar 2017
 #### Tool
 It is a web development that need work on both server side and client side. After reviews the requirement, I choose __Node.js__ for server side. Because I have few experiences of Java/Python and no experiences of Scala/GO for the web development, mean while, my last web project is a node.js web applicaton and it gave me lots of experiences. Will use __Express__ framework.
@@ -13,9 +15,11 @@ So It will be __partial MEAN__ web application.
 
 ### Some Queries
 Well, I am a little confuse about the requirements. I am thinking the purpose of this challenge.
+
 ```
 Is it to show my web development skill or the skill to solve big data?
 ```
+
 #### If it is real voting Web application ?
 * I won't let logged-in/known user to vote more then 3 times. We can have a __User__ database and to calculate the time of voting. If voting is more then 3 times. Then give a fail response to user.
 So they won't have any invalid voting at all...
@@ -27,6 +31,7 @@ So they won't have any invalid voting at all...
 * I will use RESTful api for get/post http requests. I think it is a free-style web application that I can define the user input form and get output result. The only requirement is get accurate votes results and display them in the website.
 
 * Also there are more staff to do if it is real application. What if the max voting limitation changes? What if there are more then 5 candidates? There are more things that need to be considered...But not for this project right now.
+
 #### If it is a big data challenge?
 * If it is a big data skill challenge, then it should only have one object __Vote__ which will include userID and candidateID in database. So the CountMeUp should iterate through a very large number of rows in a database and do the calculation in 1s.
 
@@ -59,9 +64,11 @@ I have spent lots of time for website development with high quality . Then I jus
 
 ### Misunderstand the requirement !!!!! - 12 May 2017
 I just notice I misunderstand the requirements. It is neither a web application challenge nor big data challenge.
+
 ```
 It is just a algorithm. But we don't know the number of users.
 ```
+
 The input is the total votes number and the percentages for different candidates.
 I will try my best to finish the right requirements.
 How can we solve it?
@@ -71,4 +78,5 @@ It is not like a pure algorithm challenge, because we don't know the total numbe
 It is not an algorithm challenges. It should be big data challenges.
 Back to big data challenges again.
 
-### Well, I am totally confused about the requirements. It provides 10,000,000 votes and candidate percentages but don't tell me the number of users... It should not be the challenges of big data. I have no idea what is the requirements. It should give input data and a small example.
+### Finally
+Well, I am totally confused about the requirements. It provides 10,000,000 votes and candidate percentages but don't tell me the number of users... It should not be the challenges of big data. I have no idea what is the requirements. It should give input data and a small example.
