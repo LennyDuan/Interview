@@ -70,3 +70,5 @@ How can we solve it?
 It is not like a pure algorithm challenge, because we don't know the total number of users...So the every votes should have his userID and candidateID...
 It is not an algorithm challenges. It should be big data challenges.
 Back to big data challenges again.
+
+### Well, I am totally confused about the requirements. It provides 10,000,000 votes and candidate percentages but don't tell me the number of users... It should not be the challenges of big data. I have no idea what is the requirements. It should give input data and a small example.

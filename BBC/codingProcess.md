@@ -118,3 +118,23 @@ I need modify what I have write. And back to the correct directions.
 The details are in the algorithmProcess.md
 
 __Well, it is not a pure algorithm challenge, it should be big data__ Back to big data challenge.
+
+#### Start big data challenge
+I might not have enough time to finish the challenges.
+Well, node is an async languages. I need to solve call-back all the time. And I face this small issue. Mongoose: Query.prototype.stream() is deprecated in mongoose >= 4.5.0, use Query.prototype.cursor() instead.
+
+##### Here is some methods that can get results at beginning:
+1. Iterate the votes, create a list for userID with votes times. If the votes time is lagger then 3, that vote will be invalid. This is O^2 time, O(1) space algorithm. Iterate votes and users then do the add operation each time for the candidates.
+
+2. Iterate the votes again. But because the userID is the number in this project. We can create an array as long as the votes number. User userID as index to insert maxVotes int value (1, 2, 3). So, we just use index to get the votes times and do the valid add operation for candidtes. This is O(1)time but O^2 space algorithms. The array MAX_VALUE = 2^31-1 = 2147483647, it is enought for 1000,0000 votes.
+
+But I am afraid that it might have time-out issue and memory issue.
+Test second method first.
+##### Improvement the algorithms.
+* Can we do parallel computing? Iterates the votes from start to mid and from end to mid together to save the time?
+
+##### Problem - Stop big data challenges, I think it is the wrong direction and I can't solve it.
+* __Problem__: My test data is 100,000 votes, just 1/10 of the 10,000,000 the scenario one. But  only iterate 100,000 votes need more than 1 sec. I have no idea how to do 10,000,000 data iterate.
+* __Solution__:
+
+Stop the project right now. I think I might in the wrong direction. Because if is a big data challenges. Why it provides the percentages of candidates?

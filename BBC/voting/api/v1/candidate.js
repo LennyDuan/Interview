@@ -16,9 +16,11 @@ exports.getCandidates = getCandidates;
 
 // GET Candidate From Votes CountMeUp - Stop Big Data - Still big data
 var countMeUp = function (req, res, next) {
-  countMeUpProxy.getCandidates().then(function (candidates) {
-    res.status(200);
-    res.send("Correct - Big data - Count Me Up!!!");
-  }).catch(next);
+  res.status(200);
+  res.send("No correct direction - Big data - Count Me Up Stop!!!");
+  // countMeUpProxy.getCandidatesResult().then(function (candidates) {
+  //   res.status(200);
+  //   res.send(candidates);
+  // }).catch(next);
 };
 exports.countMeUp = countMeUp;
