@@ -60,7 +60,13 @@ I have spent lots of time for website development with high quality . Then I jus
 ### Misunderstand the requirement !!!!! - 12 May 2017
 I just notice I misunderstand the requirements. It is neither a web application challenge nor big data challenge.
 ```
-It is just a algorithm.
+It is just a algorithm. But we don't know the number of users.
 ```
-The input is the total votes number and the percentages for different candidates. __User won't vote for the same candidate.___
+The input is the total votes number and the percentages for different candidates.
 I will try my best to finish the right requirements.
+How can we solve it?
+
+### Misunderstand the requirement again ???
+It is not like a pure algorithm challenge, because we don't know the total number of users...So the every votes should have his userID and candidateID...
+It is not an algorithm challenges. It should be big data challenges.
+Back to big data challenges again.
