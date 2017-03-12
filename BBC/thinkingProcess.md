@@ -56,3 +56,11 @@ In nodejs, we can use 'async' to handle parallelizing I/O tasks and calculate th
 
 ### What will happen if what I did is not the requirements - 11 May 2017
 I have spent lots of time for website development with high quality . Then I just notice that maybe the technical challenge is about dealing with big data. Tomorrow is the deadline and I don't have time to improve the performance of algorithm. I have no idea what should I do or what I can do...At least, I show the skill of full-stack web development.
+
+### Misunderstand the requirement !!!!! - 12 May 2017
+I just notice I misunderstand the requirements. It is neither a web application challenge nor big data challenge.
+```
+It is just a algorithm.
+```
+The input is the total votes number and the percentages for different candidates. __User won't vote for the same candidate.___
+I will try my best to finish the right requirements.

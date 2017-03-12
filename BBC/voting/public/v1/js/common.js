@@ -1,3 +1,12 @@
+// Change json data to params 
+var serialize = function (obj) {
+	var str = [];
+	for(var p in obj)
+	if (obj.hasOwnProperty(p)) {
+		str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+	}
+	return str.join("&");
+}
 // Give warning error input message
 var showWarningMessage = function (msg) {
   var body = "<div class='alert alert-warning alert-dismissable fade in'>" +

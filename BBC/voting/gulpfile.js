@@ -16,6 +16,8 @@ gulp.task('test', function () {
   })).on('error', gutil.log);
 });
 
+
+// Stop big data challenges.
 gulp.task('bigdata', function () {
   gulp.src(['./test/bigdata/bigData.test.js'], {read: false}).pipe(mocha({
     reporter: 'list',
